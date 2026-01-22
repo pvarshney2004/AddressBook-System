@@ -7,20 +7,30 @@ namespace AddressBook
         {
             System.Console.WriteLine("Welcome to Address Book Program");
 
-            // ability to create a contact in AddressBook(UC1)
-            Contact contact = new Contact
-            {
-                FirstName = "Prashant",
-                LastName = "Varshney",
-                Address = "Sadabad, Hathras, UP",
-                City = "Hathras",
-                State = "Uttar Pradesh",
-                Zip = 281307,
-                Phone = "95480*****",
-                Email = "pv@gmail.com",
-            };
+            AddressBook addressBook = new AddressBook(); // address book
 
-            contact.Display();
+            Contact contact = new Contact();
+            // taking details from console
+            System.Console.WriteLine("Enter first name: ");
+            contact.FirstName = Console.ReadLine();
+            System.Console.WriteLine("Enter last name: ");
+            contact.LastName = Console.ReadLine();
+            System.Console.WriteLine("Enter Address: ");
+            contact.Address = Console.ReadLine();
+            System.Console.WriteLine("Enter City: ");
+            contact.City = Console.ReadLine();
+            System.Console.WriteLine("Enter State name: ");
+            contact.State = Console.ReadLine();
+            System.Console.WriteLine("Enter Zip code: ");
+            contact.Zip = Convert.ToInt32(Console.ReadLine());
+            System.Console.WriteLine("Enter Phone: ");
+            contact.Phone = Console.ReadLine();
+            System.Console.WriteLine("Enter Email: ");
+            contact.Email = Console.ReadLine();
+
+            addressBook.AddContact(contact);
+            addressBook.DisplayContacts(); // displaying contacts
+
         }
     }
 }
