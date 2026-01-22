@@ -1,0 +1,38 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace AddressBook
+{
+    public class Contact
+    {
+        /*
+        Ability to create a Contacts in Address
+Book with first and last names, address,
+city, state, zip, phone number and
+email…
+        */
+        public string? FirstName;
+        public string? LastName;
+        public string? Address;
+        public string? City;
+        public string? State;
+        public int Zip;
+        public string? Phone { get; set; }
+        public string? Email;
+
+        // method to display a contact
+        public void Display()
+        {
+            System.Console.WriteLine($"Person Name: {FirstName} {LastName}");
+            System.Console.WriteLine($"Address: {Address}");
+            System.Console.WriteLine($"City: {City}");
+            System.Console.WriteLine($"State: {State}");
+            System.Console.WriteLine($"Zip: {Zip}");
+            System.Console.WriteLine($"Phone: {Phone}");
+            System.Console.WriteLine($"Email: {Email}");
+            System.Console.WriteLine("--------------------");
+        }
+    }
+}
