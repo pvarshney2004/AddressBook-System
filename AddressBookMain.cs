@@ -7,8 +7,8 @@ namespace AddressBook
         {
             System.Console.WriteLine("Welcome to Address Book Program");
 
+            // uc-02
             AddressBook addressBook = new AddressBook(); // address book
-
             Contact contact = new Contact();
             // taking details from console
             System.Console.WriteLine("Enter first name: ");
@@ -27,9 +27,12 @@ namespace AddressBook
             contact.Phone = Console.ReadLine();
             System.Console.WriteLine("Enter Email: ");
             contact.Email = Console.ReadLine();
-
             addressBook.AddContact(contact);
             addressBook.DisplayContacts(); // displaying contacts
+
+            // uc-03
+            string personName = "Prashant Varshney";
+            addressBook.EditContact(personName);
 
         }
     }
