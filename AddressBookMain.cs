@@ -31,8 +31,15 @@ namespace AddressBook
             addressBook.DisplayContacts(); // displaying contacts
 
             // uc-03
-            string personName = "Prashant Varshney";
-            addressBook.EditContact(personName);
+            // string personName = "Prashant Varshney";
+            // addressBook.EditContact(personName);
+
+            // uc-04
+            System.Console.WriteLine("Enter the person's name for which you want to delete the contact details: ");
+            string? person = Console.ReadLine();
+            addressBook.DeleteContact(person);
+            addressBook.DisplayContacts();
+
 
         }
     }

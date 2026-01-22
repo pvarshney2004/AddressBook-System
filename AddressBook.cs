@@ -69,8 +69,28 @@ Person(uc-02)
             updated.Email = Console.ReadLine();
         }
 
+        // Ability to delete a person using person's name - Use Console to delete a person(uc-04)
+        public void DeleteContact(string name)
+        {
+            Contact contact = contacts.Find(c => $"{c.FirstName} {c.LastName}".Equals(name, StringComparison.OrdinalIgnoreCase));
+            if (contact != null)
+            {
+                contacts.Remove(contact);
+                Console.WriteLine($"Contact '{name}' deleted successfully.");
+            }
+            else
+            {
+                System.Console.WriteLine("This person's contact details not available in address book.");
+            }
+        }
+
         public void DisplayContacts()
         {
+            if (contacts.Count == 0)
+            {
+                System.Console.WriteLine("No contacts available.");
+                return;
+            }
             System.Console.WriteLine("\n--------Address Book--------");
             foreach (Contact c in contacts)
             {
