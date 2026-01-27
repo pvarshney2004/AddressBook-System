@@ -120,7 +120,7 @@ namespace AddressBook
             */
 
 
-            // UC-08: Search persons by city or state across address books
+            // designing Address Book System to add multiple Address Books to the System
             AddressBooks system = new AddressBooks();
             system.AddAddressBook("Friends");
             system.AddAddressBook("Family");
@@ -156,6 +156,9 @@ namespace AddressBook
                 City = "Agra",
                 State = "UP"
             });
+
+            /*
+            // uc-08: Searching persons by city or state across address books                                                           
             // Searching persons by city
             string searchCity = "Agra";
             var personsInCity = system.SearchPersonByCity(searchCity);
@@ -172,7 +175,31 @@ namespace AddressBook
             {
                 System.Console.WriteLine($"- {person.FirstName} {person.LastName} ({person.City}, {person.State})");
             }
+            */
 
+            // UC-09: Maintain Dictionary of City and Person as well as State and Person
+            Dictionary<string, List<Contact>> cityDictionary = system.GetContactsByCity();
+            Console.WriteLine("\nContacts by City:");
+            foreach (var entry in cityDictionary)
+            {
+                Console.WriteLine($"City: {entry.Key}");
+                foreach (var contact in entry.Value)
+                {
+                    Console.WriteLine($"- {contact.FirstName} {contact.LastName}");
+                }
+            }
+
+            Dictionary<string, List<Contact>> stateDictionary = system.GetContactsByState();
+            Console.WriteLine("\nContacts by State:");
+            foreach (var entry in stateDictionary)
+            {
+                Console.WriteLine($"State: {entry.Key}");
+                foreach (var contact in entry.Value)
+                {
+                    Console.WriteLine($"- {contact.FirstName} {contact.LastName}");
+                }
+            }
+            
         }
 
     }

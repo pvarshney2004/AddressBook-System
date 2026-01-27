@@ -41,25 +41,61 @@ namespace AddressBook
         }
 
         // UC-08: Search persons by city across address books
-        public List<Contact> SearchPersonByCity(string city)
-        {
-            List<Contact> result = new List<Contact>();
-            foreach (var book in addressBooks.Values)
-            {
-                result.AddRange(book.SearchByCity(city));
-            }
-            return result;
-        }
+        // public List<Contact> SearchPersonByCity(string city)
+        // {
+        //     List<Contact> result = new List<Contact>();
+        //     foreach (var book in addressBooks.Values)
+        //     {
+        //         result.AddRange(book.SearchByCity(city));
+        //     }
+        //     return result;
+        // }
 
         // UC-08: Search persons by state across address books
-        public List<Contact> SearchPersonByState(string state)
+        // public List<Contact> SearchPersonByState(string state)
+        // {
+        //     List<Contact> result = new List<Contact>();
+        //     foreach (var book in addressBooks.Values)
+        //     {
+        //         result.AddRange(book.SearchByState(state));
+        //     }
+        //     return result;
+        // }
+
+        // uc-09 Maintain Dictionary of City and Person as well as State and Person
+        // uc-09 Dictionary City -> Persons
+        public Dictionary<string, List<Contact>> GetContactsByCity()
         {
-            List<Contact> result = new List<Contact>();
+            Dictionary<string, List<Contact>> cityContacts = new Dictionary<string, List<Contact>>();
             foreach (var book in addressBooks.Values)
             {
-                result.AddRange(book.SearchByState(state));
+                foreach (var contact in book.GetContacts())
+                {
+                    if (!cityContacts.ContainsKey(contact.City))
+                    {
+                        cityContacts[contact.City] = new List<Contact>();
+                    }
+                    cityContacts[contact.City].Add(contact);
+                }
             }
-            return result;
+            return cityContacts;
+        }
+        // uc-09 Dictionary State -> Persons
+        public Dictionary<string, List<Contact>> GetContactsByState()
+        {
+            Dictionary<string, List<Contact>> stateContacts = new Dictionary<string, List<Contact>>();
+            foreach (var book in addressBooks.Values)
+            {
+                foreach (var contact in book.GetContacts())
+                {
+                    if (!stateContacts.ContainsKey(contact.State))
+                    {
+                        stateContacts[contact.State] = new List<Contact>();
+                    }
+                    stateContacts[contact.State].Add(contact);
+                }
+            }
+            return stateContacts;
         }
 
         // method to display all address books name

@@ -104,6 +104,12 @@ Person(uc-02)
                 .ToList();
         }
 
+        // method to get all contacts
+        public List<Contact> GetContacts()
+        {
+            return contacts;
+        }
+
         public void DisplayContacts()
         {
             if (contacts.Count == 0)
