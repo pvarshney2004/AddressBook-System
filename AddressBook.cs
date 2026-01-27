@@ -119,6 +119,33 @@ Person(uc-02)
                 .ToList();
         }
 
+        // UC-12: Sort by City
+        public List<Contact> SortByCity()
+        {
+            return contacts
+                .OrderBy(c => c.City)
+                .ThenBy(c => c.FirstName)
+                .ToList();
+        }
+
+        // UC-12: Sort by State
+        public List<Contact> SortByState()
+        {
+            return contacts
+                .OrderBy(c => c.State)
+                .ThenBy(c => c.FirstName)
+                .ToList();
+        }
+
+        // UC-12: Sort by Zip
+        public List<Contact> SortByZip()
+        {
+            return contacts
+                .OrderBy(c => c.Zip)
+                .ThenBy(c => c.FirstName)
+                .ToList();
+        }
+
         public void DisplayContacts()
         {
             if (contacts.Count == 0)

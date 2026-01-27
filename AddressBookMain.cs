@@ -220,6 +220,7 @@ namespace AddressBook
             // }
 
 
+            /*
             // uc-11: Ability to sort entries alphabetically by Person's Name
             AddressBook addressBook = new AddressBook();
             addressBook.AddContact(new Contact
@@ -257,6 +258,63 @@ namespace AddressBook
             {
                 Console.WriteLine(contact);
             }
+
+            */
+
+            // uc-12: Ability to sort entries by City, State, or Zip
+            AddressBook addressBook = new AddressBook();
+            addressBook.AddContact(new Contact
+            {
+                FirstName = "Charlie",
+                LastName = "Brown",
+                City = "Delhi",
+                State = "UK",
+                Zip = 110001
+            });
+            addressBook.AddContact(new Contact
+            {
+                FirstName = "David",
+                LastName = "Wilson",
+                City = "Agra",
+                State = "UP",
+                Zip = 282001
+            });
+            addressBook.AddContact(new Contact
+            {
+                FirstName = "Alice",
+                LastName = "Smith",
+                City = "Agra",
+                State = "UP",
+                Zip = 282002
+            });
+            addressBook.AddContact(new Contact
+            {
+                FirstName = "Alice",
+                LastName = "Johnson",
+                City = "Delhi",
+                State = "UK",
+                Zip = 110002
+            });
+
+            Console.WriteLine("\nContacts sorted by City:");
+            var sortedByCity = addressBook.SortByCity();
+            foreach (var contact in sortedByCity)
+            {
+                Console.WriteLine($"{contact.FirstName} {contact.LastName} - {contact.City} - {contact.State} - {contact.Zip}");
+            }
+            Console.WriteLine("\nContacts sorted by State:");
+            var sortedByState = addressBook.SortByState();
+            foreach (var contact in sortedByState)
+            {
+                Console.WriteLine($"{contact.FirstName} {contact.LastName} - {contact.City} - {contact.State} - {contact.Zip}");
+            }
+            Console.WriteLine("\nContacts sorted by Zip:");
+            var sortedByZip = addressBook.SortByZip();
+            foreach (var contact in sortedByZip)
+            {
+                Console.WriteLine($"{contact.FirstName} {contact.LastName} - {contact.City} - {contact.State} - {contact.Zip}");
+            }
+            
 
         }
 
