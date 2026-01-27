@@ -75,18 +75,48 @@ namespace AddressBook
 
 
             // uc-06 (adding multiple address books to the system)
-            AddressBooks system = new AddressBooks();
-            bool addMore = true;
-            while (addMore)
+            // AddressBooks system = new AddressBooks();
+            // bool addMore = true;
+            // while (addMore)
+            // {
+            //     Console.Write("Enter Address Book Name: ");
+            //     string? name = Console.ReadLine();
+            //     system.AddAddressBook(name);
+            //     Console.WriteLine("Would you like to add more contact in address book: (yes/no)");
+            //     string? choice = Console.ReadLine();
+            //     addMore = choice.Equals("yes");
+            // }
+            // system.DisplayAddressBooks();
+
+
+
+            // uc-07 (duplicate contact check while adding person to address book)
+            AddressBook addressBook = new AddressBook();
+            Contact contact1 = new Contact
             {
-                Console.Write("Enter Address Book Name: ");
-                string? name = Console.ReadLine();
-                system.AddAddressBook(name);
-                Console.WriteLine("Would you like to add more contact in address book: (yes/no)");
-                string? choice = Console.ReadLine();
-                addMore = choice.Equals("yes");
-            }
-            system.DisplayAddressBooks();
+                FirstName = "Prashant",
+                LastName = "Varshney",
+                Address = "123 Main",
+                City = "CityA",
+                State = "StateA",
+                Zip = 12345,
+                Phone = "123-456-7890",
+                Email = "prashant.varshney@example.com"
+            };
+            addressBook.AddContact(contact1);
+            // Attempting to add duplicate contact
+            Contact contact2 = new Contact
+            {
+                FirstName = "Prashant",
+                LastName = "Varshney",
+                Address = "456 Elm",
+                City = "CityB",
+                State = "StateB",
+                Zip = 67890,
+                Phone = "098-765-4321",
+                Email = "pc@gmail.com",
+            };
+            addressBook.AddContact(contact2); // adding duplicate
         }
     }
 }

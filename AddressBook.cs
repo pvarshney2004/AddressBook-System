@@ -25,6 +25,12 @@ Person(uc-02)
 
         public void AddContact(Contact c)
         {
+            // Duplicate Check is done on Person Name while adding person to Address Book using collection methods.(uc-07). 
+            if (contacts.Contains(c))
+            {
+                System.Console.WriteLine($"\nContact already exists with name '{c.FirstName} {c.LastName}'.");
+                return;
+            }
             contacts.Add(c);
             System.Console.WriteLine("\nContact added successfully.");
         }

@@ -22,6 +22,18 @@ email…
         public string? Phone { get; set; }
         public string? Email;
 
+        // UC-07: Override Equals to check duplicate person
+        public override bool Equals(object obj)
+        {
+            if (obj == null || !(obj is Contact))
+            {
+                return false;
+            }
+            Contact other = (Contact)obj;
+            return FirstName.Equals(other.FirstName, StringComparison.OrdinalIgnoreCase)
+                && LastName.Equals(other.LastName, StringComparison.OrdinalIgnoreCase);
+        }
+
         // method to display a contact
         public void Display()
         {
