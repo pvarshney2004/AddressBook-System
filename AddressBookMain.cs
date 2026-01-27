@@ -177,16 +177,37 @@ namespace AddressBook
             }
             */
 
-            // UC-09: Maintain Dictionary of City and Person as well as State and Person
+            // // UC-09: Maintain Dictionary of City and Person as well as State and Person
+            // Dictionary<string, List<Contact>> cityDictionary = system.GetContactsByCity();
+            // Console.WriteLine("\nContacts by City:");
+            // foreach (var entry in cityDictionary)
+            // {
+            //     Console.WriteLine($"City: {entry.Key}");
+            //     foreach (var contact in entry.Value)
+            //     {
+            //         Console.WriteLine($"- {contact.FirstName} {contact.LastName}");
+            //     }
+            // }
+
+            // Dictionary<string, List<Contact>> stateDictionary = system.GetContactsByState();
+            // Console.WriteLine("\nContacts by State:");
+            // foreach (var entry in stateDictionary)
+            // {
+            //     Console.WriteLine($"State: {entry.Key}");
+            //     foreach (var contact in entry.Value)
+            //     {
+            //         Console.WriteLine($"- {contact.FirstName} {contact.LastName}");
+            //     }
+            // }
+
+
+            // UC-10: Ability to get number of contact persons i.e. count by City or State
             Dictionary<string, List<Contact>> cityDictionary = system.GetContactsByCity();
             Console.WriteLine("\nContacts by City:");
             foreach (var entry in cityDictionary)
             {
                 Console.WriteLine($"City: {entry.Key}");
-                foreach (var contact in entry.Value)
-                {
-                    Console.WriteLine($"- {contact.FirstName} {contact.LastName}");
-                }
+                System.Console.WriteLine($"Number of Contacts: {entry.Value.Count}");
             }
 
             Dictionary<string, List<Contact>> stateDictionary = system.GetContactsByState();
@@ -194,12 +215,9 @@ namespace AddressBook
             foreach (var entry in stateDictionary)
             {
                 Console.WriteLine($"State: {entry.Key}");
-                foreach (var contact in entry.Value)
-                {
-                    Console.WriteLine($"- {contact.FirstName} {contact.LastName}");
-                }
+                System.Console.WriteLine($"Number of Contacts: {entry.Value.Count}");
             }
-            
+
         }
 
     }
