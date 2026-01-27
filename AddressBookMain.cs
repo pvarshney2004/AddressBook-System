@@ -119,7 +119,7 @@ namespace AddressBook
             addressBook.AddContact(contact2); // adding duplicate
             */
 
-
+            /*
             // designing Address Book System to add multiple Address Books to the System
             AddressBooks system = new AddressBooks();
             system.AddAddressBook("Friends");
@@ -156,6 +156,7 @@ namespace AddressBook
                 City = "Agra",
                 State = "UP"
             });
+            */
 
             /*
             // uc-08: Searching persons by city or state across address books                                                           
@@ -202,20 +203,59 @@ namespace AddressBook
 
 
             // UC-10: Ability to get number of contact persons i.e. count by City or State
-            Dictionary<string, List<Contact>> cityDictionary = system.GetContactsByCity();
-            Console.WriteLine("\nContacts by City:");
-            foreach (var entry in cityDictionary)
-            {
-                Console.WriteLine($"City: {entry.Key}");
-                System.Console.WriteLine($"Number of Contacts: {entry.Value.Count}");
-            }
+            // Dictionary<string, List<Contact>> cityDictionary = system.GetContactsByCity();
+            // Console.WriteLine("\nContacts by City:");
+            // foreach (var entry in cityDictionary)
+            // {
+            //     Console.WriteLine($"City: {entry.Key}");
+            //     System.Console.WriteLine($"Number of Contacts: {entry.Value.Count}");
+            // }
 
-            Dictionary<string, List<Contact>> stateDictionary = system.GetContactsByState();
-            Console.WriteLine("\nContacts by State:");
-            foreach (var entry in stateDictionary)
+            // Dictionary<string, List<Contact>> stateDictionary = system.GetContactsByState();
+            // Console.WriteLine("\nContacts by State:");
+            // foreach (var entry in stateDictionary)
+            // {
+            //     Console.WriteLine($"State: {entry.Key}");
+            //     System.Console.WriteLine($"Number of Contacts: {entry.Value.Count}");
+            // }
+
+
+            // uc-11: Ability to sort entries alphabetically by Person's Name
+            AddressBook addressBook = new AddressBook();
+            addressBook.AddContact(new Contact
             {
-                Console.WriteLine($"State: {entry.Key}");
-                System.Console.WriteLine($"Number of Contacts: {entry.Value.Count}");
+                FirstName = "Charlie",
+                LastName = "Brown",
+                City = "Delhi",
+                State = "UK"
+            });
+            addressBook.AddContact(new Contact
+            {
+                FirstName = "David",
+                LastName = "Wilson",
+                City = "Agra",
+                State = "UP"
+            });
+            addressBook.AddContact(new Contact
+            {
+                FirstName = "Alice",
+                LastName = "Smith",
+                City = "Agra",
+                State = "UP"
+            });
+            addressBook.AddContact(new Contact
+            {
+                FirstName = "Alice",
+                LastName = "Johnson",
+                City = "Delhi",
+                State = "UK"
+            });
+
+            Console.WriteLine("\nContacts sorted by Name:");
+            var sortedContacts = addressBook.GetContactsSortedByName();
+            foreach (var contact in sortedContacts)
+            {
+                Console.WriteLine(contact);
             }
 
         }

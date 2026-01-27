@@ -110,6 +110,15 @@ Person(uc-02)
             return contacts;
         }
 
+        // UC-11: Sort alphabetically by name
+        public List<Contact> GetContactsSortedByName()
+        {
+            return contacts
+                .OrderBy(c => c.FirstName)
+                .ThenBy(c => c.LastName)
+                .ToList();
+        }
+
         public void DisplayContacts()
         {
             if (contacts.Count == 0)

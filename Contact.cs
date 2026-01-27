@@ -46,5 +46,11 @@ email…
             System.Console.WriteLine($"Email: {Email}");
             System.Console.WriteLine("--------------------");
         }
+
+        // uc-11 Override ToString() method
+        public override string ToString()
+        {
+            return $"Person Name: {FirstName} {LastName}, City: {City}";
+        }
     }
 }
