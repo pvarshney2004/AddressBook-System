@@ -90,6 +90,20 @@ Person(uc-02)
             }
         }
 
+        // UC-08: Ability to search Person in a City or State across the multiple Address Book
+        public List<Contact> SearchByCity(string city)
+        {
+            return contacts
+                .Where(c => c.City.Equals(city, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+        public List<Contact> SearchByState(string state)
+        {
+            return contacts
+                .Where(c => c.State.Equals(state, StringComparison.OrdinalIgnoreCase))
+                .ToList();
+        }
+
         public void DisplayContacts()
         {
             if (contacts.Count == 0)

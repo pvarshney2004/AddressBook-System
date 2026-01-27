@@ -89,7 +89,7 @@ namespace AddressBook
             // system.DisplayAddressBooks();
 
 
-
+            /*
             // uc-07 (duplicate contact check while adding person to address book)
             AddressBook addressBook = new AddressBook();
             Contact contact1 = new Contact
@@ -117,6 +117,63 @@ namespace AddressBook
                 Email = "pc@gmail.com",
             };
             addressBook.AddContact(contact2); // adding duplicate
+            */
+
+
+            // UC-08: Search persons by city or state across address books
+            AddressBooks system = new AddressBooks();
+            system.AddAddressBook("Friends");
+            system.AddAddressBook("Family");
+            // Adding contacts to Friends Address Book
+            var friendsBook = system.GetAddressBook("Friends");
+            friendsBook.AddContact(new Contact
+            {
+                FirstName = "Alice",
+                LastName = "Smith",
+                City = "Agra",
+                State = "UP"
+            });
+            friendsBook.AddContact(new Contact
+            {
+                FirstName = "Bob",
+                LastName = "Johnson",
+                City = "Delhi",
+                State = "UK"
+            });
+            // Adding contacts to Family Address Book
+            var familyBook = system.GetAddressBook("Family");
+            familyBook.AddContact(new Contact
+            {
+                FirstName = "Charlie",
+                LastName = "Brown",
+                City = "Delhi",
+                State = "UK"
+            });
+            familyBook.AddContact(new Contact
+            {
+                FirstName = "David",
+                LastName = "Wilson",
+                City = "Agra",
+                State = "UP"
+            });
+            // Searching persons by city
+            string searchCity = "Agra";
+            var personsInCity = system.SearchPersonByCity(searchCity);
+            Console.WriteLine($"\nPersons in city '{searchCity}':");
+            foreach (var person in personsInCity)
+            {
+                System.Console.WriteLine($"- {person.FirstName} {person.LastName} ({person.City}, {person.State})");
+            }
+            // Searching persons by state
+            string searchState = "UK";
+            var personsInState = system.SearchPersonByState(searchState);
+            Console.WriteLine($"\nPersons in state '{searchState}':");
+            foreach (var person in personsInState)
+            {
+                System.Console.WriteLine($"- {person.FirstName} {person.LastName} ({person.City}, {person.State})");
+            }
+
         }
+
     }
 }
