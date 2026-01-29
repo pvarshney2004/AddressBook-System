@@ -30,8 +30,13 @@ email…
                 return false;
             }
             Contact other = (Contact)obj;
-            return FirstName.Equals(other.FirstName, StringComparison.OrdinalIgnoreCase)
-                && LastName.Equals(other.LastName, StringComparison.OrdinalIgnoreCase);
+
+            // this is giving warning if FirstName or LastName is null
+            // return FirstName.Equals(other.FirstName, StringComparison.OrdinalIgnoreCase)
+            //     && LastName.Equals(other.LastName, StringComparison.OrdinalIgnoreCase);
+
+            return string.Equals(FirstName,other.FirstName,StringComparison.OrdinalIgnoreCase) && string.Equals(LastName,other.LastName,StringComparison.OrdinalIgnoreCase);
+
         }
 
         // method to display a contact
@@ -48,9 +53,15 @@ email…
         }
 
         // uc-11 Override ToString() method
+        // public override string ToString()
+        // {
+        //     return $"Person Name: {FirstName} {LastName}, City: {City}";
+        // }
+
+        // for uc-13
         public override string ToString()
         {
-            return $"Person Name: {FirstName} {LastName}, City: {City}";
+            return $"{FirstName},{LastName},{Address},{City},{State},{Zip},{Phone},{Email}";
         }
     }
 }

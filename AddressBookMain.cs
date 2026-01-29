@@ -261,6 +261,8 @@ namespace AddressBook
 
             */
 
+
+            /*
             // uc-12: Ability to sort entries by City, State, or Zip
             AddressBook addressBook = new AddressBook();
             addressBook.AddContact(new Contact
@@ -314,9 +316,59 @@ namespace AddressBook
             {
                 Console.WriteLine($"{contact.FirstName} {contact.LastName} - {contact.City} - {contact.State} - {contact.Zip}");
             }
-            
+            */
 
+
+            // uc-13
+            AddressBook addressBook = new AddressBook();
+            addressBook.AddContact(new Contact
+            {
+                FirstName = "Charlie",
+                LastName = "Brown",
+                Address = "212 street",
+                City = "Delhi",
+                State = "UK",
+                Zip = 110001,
+                Phone = "987654321",
+                Email="charlie@gmail.com"
+            });
+            addressBook.AddContact(new Contact
+            {
+                FirstName = "David",
+                LastName = "Wilson",
+                Address = "265 street",
+                City = "Agra",
+                State = "UP",
+                Zip = 282001,
+                Phone = "1234567890",
+                Email="david@gmail.com"
+            });
+            addressBook.AddContact(new Contact
+            {
+                FirstName = "Alice",
+                LastName = "Smith",
+                Address = "232 street",
+                City = "Agra",
+                State = "UP",
+                Zip = 282002,
+                Phone = "987654321",
+                Email="alice@gmail.com"
+            });
+            addressBook.AddContact(new Contact
+            {
+                FirstName = "Alice",
+                LastName = "Johnson",
+                Address = "222 street",
+                City = "Delhi",
+                State = "UK",
+                Zip = 110002,
+                Phone = "987654321",
+                Email="johnson@gmail.com"
+            });
+
+            List<Contact> contacts = addressBook.GetContacts();
+            AddressBookFileIO.WriteToFile(contacts); 
+            AddressBookFileIO.ReadFromFile();
         }
-
     }
 }

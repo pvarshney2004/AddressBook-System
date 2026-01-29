@@ -39,7 +39,7 @@ Person(uc-02)
         {
             Console.WriteLine($"Searching for {name} in address book to update details....");
             //using lambda function
-            Contact contact = contacts.Find(c => $"{c.FirstName} {c.LastName}".Equals(name, StringComparison.OrdinalIgnoreCase));
+            Contact? contact = contacts.Find(c => string.Equals($"{c.FirstName} {c.LastName}",name, StringComparison.OrdinalIgnoreCase));
             if (contact != null)
             {
                 Console.WriteLine($"{name} found. Updating details...");
@@ -78,7 +78,7 @@ Person(uc-02)
         // Ability to delete a person using person's name - Use Console to delete a person(uc-04)
         public void DeleteContact(string name)
         {
-            Contact contact = contacts.Find(c => $"{c.FirstName} {c.LastName}".Equals(name, StringComparison.OrdinalIgnoreCase));
+            Contact? contact = contacts.Find(c => $"{c.FirstName} {c.LastName}".Equals(name, StringComparison.OrdinalIgnoreCase));
             if (contact != null)
             {
                 contacts.Remove(contact);
@@ -94,13 +94,13 @@ Person(uc-02)
         public List<Contact> SearchByCity(string city)
         {
             return contacts
-                .Where(c => c.City.Equals(city, StringComparison.OrdinalIgnoreCase))
+                .Where(c => string.Equals(c.City,city,StringComparison.OrdinalIgnoreCase))
                 .ToList();
         }
         public List<Contact> SearchByState(string state)
         {
             return contacts
-                .Where(c => c.State.Equals(state, StringComparison.OrdinalIgnoreCase))
+                .Where(c => string.Equals(c.State,state,StringComparison.OrdinalIgnoreCase))
                 .ToList();
         }
 
