@@ -1,4 +1,0 @@
-Charlie,Brown,212 street,Delhi,UK,110001,987654321,charlie@gmail.com
-David,Wilson,265 street,Agra,UP,282001,1234567890,david@gmail.com
-Alice,Smith,232 street,Agra,UP,282002,987654321,alice@gmail.com
-Alice,Johnson,222 street,Delhi,UK,110002,987654321,johnson@gmail.com
