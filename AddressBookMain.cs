@@ -372,9 +372,14 @@ namespace AddressBook
             // AddressBookFileIO.ReadFromFile();
 
             // UC-14 -> ability to read/write address book from/to csv file
+            // List<Contact> contacts = addressBook.GetContacts();
+            // AddressBookCsvIO.WriteToCsv(contacts);
+            // AddressBookCsvIO.ReadFromCsv();
+
+            // uc-15 -> ability to read/write address book from/to json file
             List<Contact> contacts = addressBook.GetContacts();
-            AddressBookCsvIO.WriteToCsv(contacts);
-            AddressBookCsvIO.ReadFromCsv();
+            AddressBookJsonIO.WriteToJson(contacts);
+            AddressBookJsonIO.ReadFromJson();
 
         }
     }
