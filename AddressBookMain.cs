@@ -319,7 +319,7 @@ namespace AddressBook
             */
 
 
-            // uc-13
+            // Address book for file read/write operations
             AddressBook addressBook = new AddressBook();
             addressBook.AddContact(new Contact
             {
@@ -330,7 +330,7 @@ namespace AddressBook
                 State = "UK",
                 Zip = 110001,
                 Phone = "987654321",
-                Email="charlie@gmail.com"
+                Email = "charlie@gmail.com"
             });
             addressBook.AddContact(new Contact
             {
@@ -341,7 +341,7 @@ namespace AddressBook
                 State = "UP",
                 Zip = 282001,
                 Phone = "1234567890",
-                Email="david@gmail.com"
+                Email = "david@gmail.com"
             });
             addressBook.AddContact(new Contact
             {
@@ -352,7 +352,7 @@ namespace AddressBook
                 State = "UP",
                 Zip = 282002,
                 Phone = "987654321",
-                Email="alice@gmail.com"
+                Email = "alice@gmail.com"
             });
             addressBook.AddContact(new Contact
             {
@@ -363,12 +363,19 @@ namespace AddressBook
                 State = "UK",
                 Zip = 110002,
                 Phone = "987654321",
-                Email="johnson@gmail.com"
+                Email = "johnson@gmail.com"
             });
 
+            // UC-13 -> ability to read/write AddressBook into File
+            // List<Contact> contacts = addressBook.GetContacts();
+            // AddressBookFileIO.WriteToFile(contacts);
+            // AddressBookFileIO.ReadFromFile();
+
+            // UC-14 -> ability to read/write address book from/to csv file
             List<Contact> contacts = addressBook.GetContacts();
-            AddressBookFileIO.WriteToFile(contacts); 
-            AddressBookFileIO.ReadFromFile();
+            AddressBookCsvIO.WriteToCsv(contacts);
+            AddressBookCsvIO.ReadFromCsv();
+
         }
     }
 }

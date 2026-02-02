@@ -13,14 +13,14 @@ Book with first and last names, address,
 city, state, zip, phone number and
 email…
         */
-        public string? FirstName;
-        public string? LastName;
-        public string? Address;
-        public string? City;
-        public string? State;
-        public int Zip;
+        public string? FirstName { get; set; }
+        public string? LastName { get; set; }
+        public string? Address { get; set; }
+        public string? City { get; set; }
+        public string? State { get; set; }
+        public int Zip { get; set; }
         public string? Phone { get; set; }
-        public string? Email;
+        public string? Email { get; set; }
 
         // UC-07: Override Equals to check duplicate person
         public override bool Equals(object obj)
@@ -35,7 +35,7 @@ email…
             // return FirstName.Equals(other.FirstName, StringComparison.OrdinalIgnoreCase)
             //     && LastName.Equals(other.LastName, StringComparison.OrdinalIgnoreCase);
 
-            return string.Equals(FirstName,other.FirstName,StringComparison.OrdinalIgnoreCase) && string.Equals(LastName,other.LastName,StringComparison.OrdinalIgnoreCase);
+            return string.Equals(FirstName, other.FirstName, StringComparison.OrdinalIgnoreCase) && string.Equals(LastName, other.LastName, StringComparison.OrdinalIgnoreCase);
 
         }
 
